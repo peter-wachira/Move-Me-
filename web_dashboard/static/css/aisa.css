@@ -4,6 +4,10 @@ body{
   background-color: #393e46;
   color: white;
 }
+.footer{
+  background-color: #eeeeee;
+  color: #222831;
+}
 .sideMenu,.navbar{
   background-color: #222831;  
 }
