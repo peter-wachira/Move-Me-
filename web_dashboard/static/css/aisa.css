@@ -12,6 +12,12 @@ body{
   color: #00adb5;
   text-shadow:  2px 3px 3px #00adb5;
 }
+.navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+ 
+}
 .sideMenu,.navbar{
   background-color: #222831;  
 }
@@ -31,6 +37,7 @@ body{
   width: 100%;
   margin-left: 0rem;
   transition: all ease;
+  margin-top: 5%;
 }
 .card{
   margin-top: 3%;
@@ -56,4 +63,19 @@ body{
   .content{
     margin-left: 15rem;
   }
+}
+.profile-img{
+  height: 300px;
+  margin-top: 6%;
+}
+.admin{
+  background-color: rgba(238,238,238);
+  margin-top:5%;
+}
+.admin-details{
+  color: #222831;
+  margin-top: 15%;
+}
+.identity{
+  color: #00adb5;
 }

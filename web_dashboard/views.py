@@ -5,3 +5,7 @@ from django.http import Http404,HttpResponse
 def dashboard(request):
 
   return render(request,'dashboard.html')
+
+def admin(request):
+
+  return render(request,'administrator.html')
