@@ -9,3 +9,11 @@ def dashboard(request):
 def admin(request):
 
   return render(request,'administrator.html')
+
+def users(request):
+
+  return render(request,'users.html')
+
+def drivers(request):
+
+  return render(request,'drivers.html')
