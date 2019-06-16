@@ -11,7 +11,7 @@
   {% else %}
   <title>Move Me</title>
   {% endif %}
-</head>
+
 {% block styles %}
   {% bootstrap_css %}
   <!--Google fonts-->
@@ -25,11 +25,12 @@
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="{% static 'css/aisa.css'%}">
+<link rel="stylesheet" href="{%static 'css/aisa.css'%}">
 {% endblock %}
+</head>
 <body>
   {% include 'navbar.html' %}
-
+  
   {% block content %}
   {% endblock %}
 
