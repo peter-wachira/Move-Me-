@@ -2,27 +2,55 @@ body{
   font-family: 'Asap', sans-serif;
   /* font-family: 'Abril Fatface', cursive; */
   background-color: #393e46;
-  color: white;
+  color: #eeeeee;
 }
-.footer{
-  background-color: #eeeeee;
-  color: #222831;
+.page-footer{
+  background-color: #393e46;
+  color:  #eeeeee;
+}
+#navbrand:hover{
+  color: #00adb5;
+  text-shadow:  2px 3px 3px #00adb5;
 }
 .sideMenu,.navbar{
   background-color: #222831;  
 }
 .sideMenu{
   padding: 3rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 15rem;
+  margin-top: 5.5%;
+  transition: all ease;
+  transform: translateX(-100%);
+  z-index: 2000;
+}
+.content{
+  width: 100%;
+  margin-left: 0rem;
+  transition: all ease;
 }
 .card{
   margin-top: 3%;
-}
-.nav-item{
-  padding: 1%;
 }
 .text{
   color: #ffffff;
 }
 .fas{
   color: #00adb5;
+}
+.charts{
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+@media only screen  and (min-width:992px){
+  
+  .sideMenu{
+    transform: translateX(0);
+  }
+  .content{
+    margin-left: 15rem;
+  }
 }
