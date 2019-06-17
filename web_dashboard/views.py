@@ -39,8 +39,13 @@ def adminSignIn(request):
 def postsign(request):
   email = request.POST.get('email')
   password = request.POST.get('pass')
-  
-  user = auth.sign_in_with_email_and_password(email,password)
+
+  try:
+    user = auth.sign_in_with_email_and_password(email,password)
+  except:
+    message = "Invalid Credentials"
+    return render(request,"signIn.html",{"message":message})
+  print(user)
   
   return render(request, "welcome.html",{"email":email})
 
