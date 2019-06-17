@@ -91,7 +91,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 #user-title{
   margin-top: 5%;
-  text-align: center;
+  text-decoration: underline;
 }
 .th-sm{
   font-weight: bold;
