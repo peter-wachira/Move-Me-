@@ -7,4 +7,5 @@ urlpatterns=[
   url(r'^administrator/',views.admin,name='admin-dash'),
   url(r'^users/',views.users,name='users'),
   url(r'^drivers/',views.drivers,name='drivers'),
+  url(r'^signIn/',views.adminSignIn,name='admin-signIn'),
 ]

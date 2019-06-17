@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if message %}
+    <script>
+      alert('{{message}}')
+    </script>
+  {% endif %}
+
+  <form action="/postsign/" method="post">
+    {% csrf_token %}
+    Email :
+    <input type="email" name="email">
+    Password:
+    <input type="password" name="pass">
+    <input type="submit" value="SignIn">
+    </form>
+  
+{% endblock %}
