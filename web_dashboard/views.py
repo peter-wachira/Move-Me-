@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import Http404,HttpResponse
 import pyrebase
+from django.contrib import auth
 
 config={
   'apiKey': "AIzaSyC0Z5dua996GPaJzlwX1aK_D6FcVSxUNSo",
@@ -13,7 +14,7 @@ config={
 }
 
 firebase = pyrebase.initialize_app(config)
-auth = firebase.auth()
+auth_a = firebase.auth()
 
 # Create your views here.
 def dashboard(request):
@@ -41,12 +42,20 @@ def postsign(request):
   password = request.POST.get('pass')
 
   try:
-    user = auth.sign_in_with_email_and_password(email,password)
+    user = auth_a.sign_in_with_email_and_password(email,password)
   except:
     message = "Invalid Credentials"
     return render(request,"signIn.html",{"message":message})
-  print(user)
+  print(user['idToken'])
+  session_id=user['idToken']
+  request.session['uid']=str(session_id)
   
   return render(request, "welcome.html",{"email":email})
+
+def adminLogout(request):
+  auth.logout(request)
+
+  return render(request,'signIn.html')
+
 
   
