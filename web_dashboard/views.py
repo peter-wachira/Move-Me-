@@ -33,5 +33,18 @@ def drivers(request):
   return render(request,'drivers.html')
 
 def adminSignIn(request):
-  
+
   return render(request,'signIn.html')
+
+def adminAuth(request):
+  email = request.POST.get('email')
+  password = request.POST.get('pass')
+  try:
+    user = auth.sign_in_with_email_and_password(email,password)
+  except:
+    message = "Invalid Credentials"
+    return render(request,"signIn.html",{"message":message})
+  print(user)
+  return redirect(request, "administration.html",{"email":email})
+
+  
