@@ -89,5 +89,8 @@ def postsignup(request):
 
   return render(request,'signIn.html')
 
+def create_profile(request):
+  return render(request,'welcome.html')
+
 
   

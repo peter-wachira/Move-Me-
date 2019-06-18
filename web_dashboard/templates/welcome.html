@@ -33,12 +33,49 @@
       </div>
   </div>
   <div class="container-fluid content">
-    <div class="row">
-      <div>
-          
-          Welcome {{email}}
-      </div>
-    </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div>          
+                            Welcome {{email}}
+                        </div>
+                        <br>
+                    <form class="border border-light p-5 prof-form" method="post" action="/create_profile/">
+                        {%csrf_token%}
+                        <p class="h4 mb-4 text-center">Admin Profile</p>
+                    
+                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Name" name="name">
+
+                        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Address" name="address">
+                    
+                        <input type="number" id="defaultRegisterPhonePassword" class="form-control" name="phone" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    
+                    
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
+                                <label class="custom-file-label" for="fileInput">File Label</label>
+                            </div>
+                        </div>
+                    
+                        <label for="textarea">Bio</label>
+                        <textarea id="textarea" class="form-control mb-4" placeholder="Your bio"></textarea>
+                        
+                        <input class="btn btn-info my-4 btn-block" type="submit" value="Create">
+      
+                        
+                    </form>
+                    <div class="skip">
+                        Skip
+                        <button type="button" class="btn btn-light"><i class="fas fa-long-arrow-alt-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-3"></div>       
+      
   </div>
 </div>
 
