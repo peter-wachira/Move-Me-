@@ -9,5 +9,6 @@ urlpatterns=[
   url(r'^drivers/',views.drivers,name='drivers'),
   url(r'^signIn/',views.adminSignIn,name='admin-signIn'),
   url(r'^postsign/',views.postsign,name='admin-welcome'),
-  url(r'^logout/',views.adminLogout,name='logout')
+  url(r'^logout/',views.adminLogout,name='logout'),
+  url(r'^signUp/',views.adminRegister,name='admin-signUp')
 ]

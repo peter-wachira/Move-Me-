@@ -15,6 +15,7 @@ config={
 
 firebase = pyrebase.initialize_app(config)
 auth_a = firebase.auth()
+database=firebase.database()
 
 # Create your views here.
 def dashboard(request):
@@ -54,6 +55,27 @@ def postsign(request):
 
 def adminLogout(request):
   auth.logout(request)
+
+  return render(request,'signIn.html')
+
+def adminRegister(request):
+
+  return render(request,'signUp.html')
+
+def postsignup(request):
+  firstname=request.POST.get('firstname')
+  lastname=request.POST.get('lastname')
+  email=request.POST.get('email')
+  password=request.POST.get('password')
+  phone=request.POST.get('mobile')
+
+  user=auth_a.create_user_with_email_and_password(email,password)
+
+  uid=user['localId']
+
+  data={"firstname":firstname, "status":"1"}
+
+  database.child("admin").child(uid).child("details").set(data)
 
   return render(request,'signIn.html')
 
