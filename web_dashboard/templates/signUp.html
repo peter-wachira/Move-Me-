@@ -6,8 +6,8 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <!-- Default form register -->
-<form class="text-center border border-light p-5" action="/postsignup/" method="post">
-
+<form class="text-center border border-light p-5 auth-form" action="/postsignup/" method="post">
+  {% csrf_token %}
   <p class="h4 mb-4">Sign up</p>
 
   <div class="form-row mb-4">
@@ -34,7 +34,7 @@
   <input type="text" id="defaultRegisterPhonePassword" name="mobile" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
     
   <!-- Sign up button -->
-  <input class="btn btn-info my-4 btn-block" type="submit" value="Sign in">
+  <input class="btn btn-info my-4 btn-block" type="submit" value="Sign Up">
 
   
   <!-- Terms of service -->

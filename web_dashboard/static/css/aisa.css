@@ -100,3 +100,6 @@ table.dataTable thead .sorting_desc_disabled:before {
 .bottom-th{
   font-weight: bold;
 }
+.auth-form{
+  margin-top: 10%;
+}

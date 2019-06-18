@@ -10,5 +10,6 @@ urlpatterns=[
   url(r'^signIn/',views.adminSignIn,name='admin-signIn'),
   url(r'^postsign/',views.postsign,name='admin-welcome'),
   url(r'^logout/',views.adminLogout,name='logout'),
-  url(r'^signUp/',views.adminRegister,name='admin-signUp')
+  url(r'^signUp/',views.adminRegister,name='admin-signUp'),
+  url(r'^postsignup/',views.postsignup,name='admin-register')
 ]

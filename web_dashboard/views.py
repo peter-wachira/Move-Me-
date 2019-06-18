@@ -69,11 +69,21 @@ def postsignup(request):
   password=request.POST.get('password')
   phone=request.POST.get('mobile')
 
-  user=auth_a.create_user_with_email_and_password(email,password)
-
+  try:
+    user=auth_a.create_user_with_email_and_password(email,password)
+  except:    
+    message="Unable to create account! Please try again"
+    return render(request,'signUp.html',{"message":message})
   uid=user['localId']
 
-  data={"firstname":firstname, "status":"1"}
+  data={
+    "firstname":firstname,
+    "lastname":lastname,
+    "email":email,
+    "password":password,
+    "mobile":mobile,
+   "status":"1"
+  }
 
   database.child("admin").child(uid).child("details").set(data)
 
