@@ -56,7 +56,10 @@ def postsign(request):
   return render(request, "welcome.html",{"email":email})
 
 def adminLogout(request):
-  auth.logout(request)
+  try:
+    del request.session['uid']
+  except KeyError:
+    pass
 
   return render(request,'signIn.html')
 
@@ -87,7 +90,7 @@ def postsignup(request):
 
   }
 
-  database.child("admin").child(uid).child("details").set(data)
+  database.child("admin").child(uid).child("details").set(data,idToken)
 
   return render(request,'signIn.html')
 
@@ -100,25 +103,27 @@ def post_create(request):
   address=request.POST.get('address')
   mobile=request.POST.get('phone')
   bio=request.POST.get('bio')
+  try:
+    time_now=datetime.now()
+    millis=int(time.mktime(time_now.timetuple()))
+    idToken=request.session['uid']
+    prof =auth_a.get_account_info(idToken)
 
-  time_now=datetime.now()
-  millis=int(time.mktime(time_now.timetuple()))
-  idToken=request.session['uid']
-  prof =auth_a.get_account_info(idToken)
+    prof=prof['users']
+    prof=prof[0]
+    prof=prof['localId']
 
-  prof=prof['users']
-  prof=prof[0]
-  prof=prof['localId']
+    print("Prof"+str(prof))   
 
-  print("Prof"+str(prof))   
+    data={
+      'name':name,
+      'address':address,
+      'mobile':mobile,
+      'bio':bio
+    }
+    database.child("admin").child(prof).child("profile").child(millis).set(data,idToken)
 
-  data={
-    'name':name,
-    'address':address,
-    'mobile':mobile,
-    'bio':bio
-  }
-  database.child("admin").child(prof).child("profile").child(millis).set(data)
-
-  return render(request,'dashboard.html')
-
+    return render(request,'dashboard.html')
+  except KeyError:
+    message='Oops! User logged out please sign in.'
+    return render(request,'signIn.html',{"message":message})
