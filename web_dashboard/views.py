@@ -84,6 +84,7 @@ def postsignup(request):
     "email":email,
     "password":password,
     "phone":phone,
+
   }
 
   database.child("admin").child(uid).child("details").set(data)
@@ -101,9 +102,13 @@ def post_create(request):
   bio=request.POST.get('bio')
 
   time_now=datetime.now()
-  milis=int(time.mktime(time_now.timetuple()))
+  millis=int(time.mktime(time_now.timetuple()))
   idToken=request.session['uid']
   prof =auth_a.get_account_info(idToken)
+
+  prof=prof['admin']
+  prof=prof[0]
+  prof=prof['localId']
 
   print("Prof"+str(prof))   
 
@@ -113,6 +118,7 @@ def post_create(request):
     'mobile':mobile,
     'bio':bio
   }
+  database.child("admin").child(prof).child("profile").child(millis).set(data)
 
   return render(request,'dashboard.html')
 
