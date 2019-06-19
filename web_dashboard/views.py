@@ -106,7 +106,7 @@ def post_create(request):
   idToken=request.session['uid']
   prof =auth_a.get_account_info(idToken)
 
-  prof=prof['admin']
+  prof=prof['users']
   prof=prof[0]
   prof=prof['localId']
 
