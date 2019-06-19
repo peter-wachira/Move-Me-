@@ -11,5 +11,7 @@ urlpatterns=[
   url(r'^postsign/',views.postsign,name='admin-welcome'),
   url(r'^logout/',views.adminLogout,name='logout'),
   url(r'^signUp/',views.adminRegister,name='admin-signUp'),
-  url(r'^postsignup/',views.postsignup,name='admin-register')
+  url(r'^postsignup/',views.postsignup,name='admin-register'),
+  url(r'^profile/',views.create_profile,name='prof-create'),
+  url(r'^create_post/',views.post_create,name='prof-post')
 ]

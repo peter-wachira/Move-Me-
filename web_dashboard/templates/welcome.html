@@ -40,7 +40,7 @@
                             Welcome {{email}}
                         </div>
                         <br>
-                    <form class="border border-light p-5 prof-form" method="post" action="/create_profile/">
+                    <form class="border border-light p-5 prof-form"  action="{%url 'prof-post'%}" method="post">
                         {%csrf_token%}
                         <p class="h4 mb-4 text-center">Admin Profile</p>
                     
@@ -62,7 +62,7 @@
                         </div>
                     
                         <label for="textarea">Bio</label>
-                        <textarea id="textarea" class="form-control mb-4" placeholder="Your bio"></textarea>
+                        <textarea id="textarea" class="form-control mb-4" placeholder="Your bio" name="bio"></textarea>
                         
                         <input class="btn btn-info my-4 btn-block" type="submit" value="Create">
       
@@ -70,7 +70,8 @@
                     </form>
                     <div class="skip">
                         Skip
-                        <button type="button" class="btn btn-light"><i class="fas fa-long-arrow-alt-right"></i></button>
+                        <a href="{% url 'admin-dash'%}">
+                        <button type="button" class="btn btn-light"><i class="fas fa-long-arrow-alt-right"></i></button></a>
                     </div>
                 </div>
             </div>

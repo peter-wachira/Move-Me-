@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import Http404,HttpResponse
 import pyrebase
 from django.contrib import auth
+import time
+from datetime import datetime
 
 config={
   'apiKey': "AIzaSyC0Z5dua996GPaJzlwX1aK_D6FcVSxUNSo",
@@ -81,8 +83,7 @@ def postsignup(request):
     "lastname":lastname,
     "email":email,
     "password":password,
-    "mobile":mobile,
-   "status":"1"
+    "phone":phone,
   }
 
   database.child("admin").child(uid).child("details").set(data)
@@ -90,7 +91,28 @@ def postsignup(request):
   return render(request,'signIn.html')
 
 def create_profile(request):
+
   return render(request,'welcome.html')
 
+def post_create(request):
+  name=request.POST.get('name')
+  address=request.POST.get('address')
+  mobile=request.POST.get('phone')
+  bio=request.POST.get('bio')
 
-  
+  time_now=datetime.now()
+  milis=int(time.mktime(time_now.timetuple()))
+  idToken=request.session['uid']
+  prof =auth_a.get_account_info(idToken)
+
+  print("Prof"+str(prof))   
+
+  data={
+    'name':name,
+    'address':address,
+    'mobile':mobile,
+    'bio':bio
+  }
+
+  return render(request,'dashboard.html')
+
