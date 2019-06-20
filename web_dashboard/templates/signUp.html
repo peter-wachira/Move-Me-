@@ -2,7 +2,7 @@
 
 {% block content %} 
   <div class="container-fluid">
-    <div class="row">
+    <div class="row auth-form">
       <div class="col-md-3"></div>
       <div class="col-md-6">
           {% if message %}
@@ -11,7 +11,7 @@
           </script>
           {% endif %}
         <!-- Default form register -->
-        <form class="text-center border border-light p-5 auth-form" action="/postsignup/" method="post">
+        <form class="text-center border border-light p-5" action="/postsignup/" method="post">
           {% csrf_token %}
           <p class="h4 mb-4">Sign up</p>
 
@@ -46,6 +46,9 @@
           <p>By clicking
               <em>Sign up</em> you agree to our
               <a href="" target="_blank">terms of service</a>
+          <p>Already an admin?
+              <a href="{% url 'admin-signIn'%}">Sign In</a>
+          </p>
 
         </form>
         <!-- Default form register -->
