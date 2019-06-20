@@ -128,3 +128,33 @@
   });
 
 });
+
+var config={
+  apiKey: "AIzaSyC0Z5dua996GPaJzlwX1aK_D6FcVSxUNSo",
+  authDomain: "moveme-147d2.firebaseapp.com",
+  databaseURL: "https://moveme-147d2.firebaseio.com",
+  storageBucket: "moveme-147d2.appspot.com",
+}
+ // Initialize Firebase
+firebase.initializeApp(config);
+
+function uploadimage(){
+  var storage = firebase.storage();
+
+  var file=document.getElementById('fileInput').files[0];
+  var storageRef = storage.ref();
+  var thisref=storageRef.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot){
+    console.log("file uploaded successfully")
+  },
+  function(error){
+
+  },
+  function() {
+    // Upload completed successfully, now we can get the download URL
+   var downloadURL=thisref.snapshot.getDownloadURL;
+      console.log('Got url');
+      alert('file uploaded successfully');
+  }
+  )
+}

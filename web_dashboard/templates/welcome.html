@@ -53,11 +53,11 @@
                     
                         <div class="input-group mb-4">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Upload</span>
+                                <span class="input-group-text"><button type="button" onclick="uploadimage()">Upload</button></span>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
-                                <label class="custom-file-label" for="fileInput">File Label</label>
+                                <input type="file" class="custom-file-input" name="files[]" id="fileInput" aria-describedby="fileInput">
+                                <label class="custom-file-label" for="fileInput" id="url">File Label</label>
                             </div>
                         </div>
                     
@@ -70,7 +70,7 @@
                     </form>
                     <div class="skip">
                         Skip
-                        <a href="{% url 'admin-dash'%}">
+                        <a href="{% url 'dashboard'%}">
                         <button type="button" class="btn btn-light"><i class="fas fa-long-arrow-alt-right"></i></button></a>
                     </div>
                 </div>
