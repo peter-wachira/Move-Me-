@@ -29,8 +29,71 @@ def admin(request):
   return render(request,'administrator.html')
 
 def users(request):
-
+  
   return render(request,'users.html')
+
+def user_details(request):
+  import datetime
+
+  idToken=request.session['uid']
+  prof =auth_a.get_account_info(idToken)
+  timestamps = database.child('Users').child(prof).child('Customers').shallow().get().val()
+  lis_time=()
+
+  for i in timestamps:
+
+    lis_time.append(i)
+
+  lis_time.sort(reverse=True)
+
+  print(lis_time)
+  
+  Custome = []
+
+  for x in lis_time:
+
+    cust=database.child('Users').child(prof).child('Customers').child(x).child('details').shallow().get().val()
+    Custome.append(cust)
+  print(Custome)
+  
+  emai = []
+  firstn = []
+  lastn = []
+  phon = []
+  gend = []
+  dateti = []
+
+  for e in Custome:
+
+    ema = database.child('Users').child(prof).child('Customers').child(x).child('details').child(e).child('email').get().val()
+    emai.append(ema)
+
+    first = database.child('Users').child(prof).child('Customers').child(x).child('details').child(e).child('firstname').get().val()
+    firstn.append(first)
+
+    last = database.child('Users').child(prof).child('Customers').child(x).child('details').child(e).child('lastname').get().val()
+    lastn.append(last)
+
+    pho = database.child('Users').child(prof).child('Customers').child(x).child('details').child(e).child('phone').get().val()
+    phon.append(pho)
+
+    gen = database.child('Users').child(prof).child('Customers').child(x).child('details').child(e).child('gender').get().val()
+    gend.append(gen)
+
+    e = float(e)
+    datet = datetime.datetime.fromtimestamp(e).strftime('%H:%M %d-%m-%y')
+    dateti.append(datet)
+
+  print(emai)
+  print(firstn)
+  print(lastn)
+  print(phon)
+  print(gend)
+  print(datet)
+
+  every = zip(Custome,emai,firstn,lastn,phon,gend,datet)
+
+  return render(request,'users.html',{'every':every})
 
 def drivers(request):
 

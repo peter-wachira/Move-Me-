@@ -13,5 +13,6 @@ urlpatterns=[
   url(r'^signUp/',views.adminRegister,name='admin-signUp'),
   url(r'^postsignup/',views.postsignup,name='admin-register'),
   url(r'^profile/',views.create_profile,name='prof-create'),
-  url(r'^create_post/',views.post_create,name='prof-post')
+  url(r'^create_post/',views.post_create,name='prof-post'),
+  url(r'^user_details/',views.user_details,name='user_details')
 ]

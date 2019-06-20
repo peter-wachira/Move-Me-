@@ -1,4 +1,6 @@
-#!/home/moringaschool/Documents/mc15-core/django/Move-Me-/virtual/bin/python
+#!/bin/sh
+'''exec' "/home/moringa/Documents/Final Project/Move-Me-/virtual/bin/python3.6" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
