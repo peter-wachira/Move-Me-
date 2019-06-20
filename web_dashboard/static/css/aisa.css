@@ -100,9 +100,12 @@ table.dataTable thead .sorting_desc_disabled:before {
 .bottom-th{
   font-weight: bold;
 }
-.auth-form,.prof-form{
-  margin-top: 10%;
+.auth-form,.prof-form,.welcome{
+  margin-top: 8%;
 }
 .skip{
   margin-bottom: 10%;
+}
+.dropdown-item:hover{
+  background-color:#00adb5;
 }
