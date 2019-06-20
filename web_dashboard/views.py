@@ -5,6 +5,8 @@ from django.contrib import auth
 import time
 from datetime import datetime
 
+
+
 config={
   'apiKey': "AIzaSyC0Z5dua996GPaJzlwX1aK_D6FcVSxUNSo",
   'authDomain': "moveme-147d2.firebaseapp.com",
@@ -121,4 +123,5 @@ def post_create(request):
   database.child("admin").child(prof).child("profile").child(millis).set(data)
 
   return render(request,'dashboard.html')
+
 
