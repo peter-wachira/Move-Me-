@@ -36,6 +36,10 @@ def drivers(request):
 
   return render(request,'drivers.html')
 
+def trips(request):
+
+  return render(request,'trips.html')
+
 def adminSignIn(request):
 
   return render(request,'signIn.html')
@@ -127,3 +131,7 @@ def post_create(request):
   except KeyError:
     message='Oops! User logged out please sign in.'
     return render(request,'signIn.html',{"message":message})
+
+def location(request):
+
+  return render(request,'location_rates.html')

@@ -17,7 +17,7 @@
               <li class="nav-item"><a href="{% url 'drivers'%}" class="nav-link"><i class="fas fa-users" aria-hidden="true"></i>
                   <span class="text">Drivers</span>
               </a></li>
-              <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-suitcase" aria-hidden="true"></i>
+              <li class="nav-item"><a href="{% url 'trips'%}" class="nav-link"><i class="fas fa-suitcase" aria-hidden="true"></i>
                   <span class="text">Trips</span>
               </a></li>
               <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-chart-pie" aria-hidden="true"></i>
@@ -33,11 +33,11 @@
       </div>
   </div>
   <div class="container-fluid content">
-            <div class="row">
+            <div class="row text-center welcome">
                 <div class="col-md-3"></div>
                     <div class="col-md-6">
                         <div>          
-                            Welcome {{email}}
+                           <h2>Welcome {{email}}</h2> 
                         </div>
                         <br>
                     <form class="border border-light p-5 prof-form"  action="{%url 'prof-post'%}" method="post">
@@ -53,12 +53,14 @@
                     
                         <div class="input-group mb-4">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><button type="button" onclick="uploadimage()">Upload</button></span>
+                                <button  class="input-group-text btn btn-info" type="button" onclick="uploadimage()">Upload</button>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="files[]" id="fileInput" aria-describedby="fileInput">
+                                <input type="file" class="custom-file-input btn btn-info" name="files[]" id="fileInput" aria-describedby="fileInput">
+                                <input type="hidden" name="url" id="url">
                                 <label class="custom-file-label" for="fileInput" id="url">File Label</label>
                             </div>
+                            
                         </div>
                     
                         <label for="textarea">Bio</label>
