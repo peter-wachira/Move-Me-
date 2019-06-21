@@ -136,8 +136,4 @@ def post_create(request):
 
 def location(request):
 
-<<<<<<< HEAD
-
-=======
   return render(request,'location_rates.html')
->>>>>>> origin/WebApp

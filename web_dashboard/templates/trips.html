@@ -1,189 +1,150 @@
-<<<<<<< HEAD
-{%extends 'base.html'%}
-
-{% block content %}
-
-<div class="wrapper d-flex">
-=======
 {% extends 'base.html'%}
 
 {%block content%}
-  <div class="wrapper d-flex">
->>>>>>> origin/WebApp
+<div class="wrapper d-flex">
     <div class="sideMenu">
         <div class="sidebar">
             <ul class="navbar-nav">
-                <li class="nav-item"><a href="{% url 'dashboard'%}" class="nav-link"><i class="fas fa-tachometer-alt" aria-hidden="true"></i>
-<<<<<<< HEAD
-                    <span class="text">Trip Type</span>
-                </a></li>
-                <li class="nav-item"><a href="{% url 'admin-dash'%}" class="nav-link"><i class="fas fa-lock" aria-hidden="true"></i>
-                    <span class="text">Address</span>
-                </a></li>
-                <li class="nav-item"><a href="{% url 'users'%}" class="nav-link"><i class="fas fa-users" aria-hidden="true"></i>
-                    <span class="text">Date</span>
-=======
-                    <span class="text">Dashboard</span>
-                </a></li>
-                <li class="nav-item"><a href="{% url 'admin-dash'%}" class="nav-link"><i class="fas fa-lock" aria-hidden="true"></i>
-                    <span class="text">Admin</span>
-                </a></li>
-                <li class="nav-item"><a href="{% url 'users'%}" class="nav-link"><i class="fas fa-users" aria-hidden="true"></i>
-                    <span class="text">Users</span>
->>>>>>> origin/WebApp
-                </a></li>
-                <li class="nav-item"><a href="{% url 'drivers'%}" class="nav-link"><i class="fas fa-users" aria-hidden="true"></i>
-                    <span class="text">Drivers</span>
-                </a></li>
-<<<<<<< HEAD
-                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-suitcase" aria-hidden="true"></i>
-                    <span class="text">Rider</span>
-                </a></li>
+                <li class="nav-item"><a href="{% url 'dashboard'%}" class="nav-link"><i class="fas fa-tachometer-alt"
+                            aria-hidden="true"></i>
+                        <span class="text">Dashboard</span>
+                    </a></li>
+                <li class="nav-item"><a href="{% url 'admin-dash'%}" class="nav-link"><i class="fas fa-lock"
+                            aria-hidden="true"></i>
+                        <span class="text">Admin</span>
+                    </a></li>
+                <li class="nav-item"><a href="{% url 'users'%}" class="nav-link"><i class="fas fa-users"
+                            aria-hidden="true"></i>
+                        <span class="text">Users</span>
+                    </a></li>
+                <li class="nav-item"><a href="{% url 'drivers'%}" class="nav-link"><i class="fas fa-users"
+                            aria-hidden="true"></i>
+                        <span class="text">Drivers</span>
+                    </a></li>
+                <li class="nav-item"><a href="{% url 'trips'%}" class="nav-link"><i class="fas fa-suitcase"
+                            aria-hidden="true"></i>
+                        <span class="text">Trips</span>
+                    </a></li>
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-chart-pie" aria-hidden="true"></i>
-                    <span class="text">Charges</span>
-                </a></li>
-                
-=======
-                <li class="nav-item"><a href="{% url 'trips'%}" class="nav-link"><i class="fas fa-suitcase" aria-hidden="true"></i>
-                    <span class="text">Trips</span>
-                </a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-chart-pie" aria-hidden="true"></i>
-                    <span class="text">Charts</span>
-                </a></li>
+                        <span class="text">Charts</span>
+                    </a></li>
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-star" aria-hidden="true"></i>
-                    <span class="text">Reviews</span>
-                </a></li>
+                        <span class="text">Reviews</span>
+                    </a></li>
                 <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-map-marked-alt"></i>
-                    <span class="text">Location Fare</span>
-                </a></li>                
->>>>>>> origin/WebApp
+                        <span class="text">Location Fare</span>
+                    </a></li>
             </ul>
         </div>
     </div>
     <div class="container-fluid content">
-<<<<<<< HEAD
-      <div class="row ">
-        <div class="col-md-12 text-center">
-          <h3 class="font-weight-bold" id="user-title"> Trips</h3>
-        </div>          
-        
-        <div id="table" class="table-editable table-responsive-sm">
-          <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
-            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-
+        <div class="row">
+                <div class="col-md-12 text-center">
+                        <h3 class="font-weight-bold" id="user-title"> Trip-details</h3>
+                      </div>        
             <table id="usersData" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>
-                  <tr>
-                    <th class="th-sm">First name
-                    </th>
-                    <th class="th-sm">Last name
-                    </th>
-                    <th class="th-sm">Email
-                    </th>
-                    <th class="th-sm">Mobile
-                    </th>
-                    <th class="th-sm">Gender
-                    </th>
-                    <th class="th-sm">Sign-Up date
-                    </th>
-                    <th class="th-sm">Status
-                    </th>
-                    <th class="th-sm">Sort</th>
-                    <th class="th-sm">Remove</th>
-                  </tr>
+                    <tr>
+                        <th class="bottom-th">Trip Type
+                        </th>
+                        <th class="bottom-th">Address
+                        </th>
+                        <th class="bottom-th">Driver
+                        </th>
+                        <th class="bottom-th">Rider
+                        </th>
+                        <th class="bottom-th">Gender
+                        </th>
+                        <th class="bottom-th">Sign-Up date
+                        </th>
+                        <th class="bottom-th">Status
+                        </th>
+                        <th class="bottom-th">Sort</th>
+                        <th class="bottom-th">Remove</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="pt-3-half" contenteditable="true">Tiger </td>
-                    <td class="pt-3-half" contenteditable="true">Nixon</td>
-                    <td class="pt-3-half" contenteditable="true">System Architect</td>
-                    <td class="pt-3-half" contenteditable="true">Edinburgh</td>
-                    <td class="pt-3-half" contenteditable="true">61</td>
-                    <td class="pt-3-half" contenteditable="true">2011/04/25</td>
-                    <td class="pt-3-half" contenteditable="true">$320,800</td>
-                    <td class="pt-3-half">
-                      <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"
-                            aria-hidden="true"></i></a></span>
-                      <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
-                            aria-hidden="true"></i></a></span>
-                    </td>
-                    <td>
-                      <span class="table-remove"><button type="button"
-                          class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="pt-3-half" contenteditable="true">Tiger Nixon</td>
-                    <td class="pt-3-half" contenteditable="true">Garrett Winters</td>
-                    <td class="pt-3-half" contenteditable="true">Accountant</td>
-                    <td class="pt-3-half" contenteditable="true">Tokyo</td>
-                    <td class="pt-3-half" contenteditable="true">63</td>
-                    <td class="pt-3-half" contenteditable="true">2011/07/25</td>
-                    <td class="pt-3-half" contenteditable="true">$170,750</td>
-                    <td class="pt-3-half">
-                      <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"
-                            aria-hidden="true"></i></a></span>
-                      <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
-                            aria-hidden="true"></i></a></span>
-                    </td>
-                    <td>
-                      <span class="table-remove"><button type="button"
-                          class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="pt-3-half" contenteditable="true">Tiger Nixon</td>
-                    <td class="pt-3-half" contenteditable="true">Ashton Cox</td>
-                    <td class="pt-3-half" contenteditable="true">Junior Technical Author</td>
-                    <td class="pt-3-half" contenteditable="true">San Francisco</td>
-                    <td class="pt-3-half" contenteditable="true">66</td>
-                    <td class="pt-3-half" contenteditable="true">2009/01/12</td>
-                    <td class="pt-3-half" contenteditable="true">$86,000</td>
-                    <td class="pt-3-half">
-                      <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"
-                            aria-hidden="true"></i></a></span>
-                      <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
-                            aria-hidden="true"></i></a></span>
-                    </td>
-                    <td>
-                      <span class="table-remove"><button type="button"
-                          class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-                    </td>
-                  </tr>
-                  
+                    <tr>
+                        <td class="pt-3-half" contenteditable="true">Lorry </td>
+                        <td class="pt-3-half" contenteditable="true">Kibera</td>
+                        <td class="pt-3-half" contenteditable="true">Peter</td>
+                        <td class="pt-3-half" contenteditable="true">Eddy</td>
+                        <td class="pt-3-half" contenteditable="true">Male</td>
+                        <td class="pt-3-half" contenteditable="true">2011/04/25</td>
+                        <td class="pt-3-half" contenteditable="true">$320,800</td>
+                        <td class="pt-3-half">
+                            <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"
+                                        aria-hidden="true"></i></a></span>
+                            <span class="table-down"><a href="#!" class="indigo-text"><i
+                                        class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+                        </td>
+                        <td>
+                            <span class="table-remove"><button type="button"
+                                    class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pt-3-half" contenteditable="true">Pick Up</td>
+                        <td class="pt-3-half" contenteditable="true">Moringa</td>
+                        <td class="pt-3-half" contenteditable="true">Jemila</td>
+                        <td class="pt-3-half" contenteditable="true">Lilian</td>
+                        <td class="pt-3-half" contenteditable="true">Female</td>
+                        <td class="pt-3-half" contenteditable="true">2011/07/25</td>
+                        <td class="pt-3-half" contenteditable="true">$170,750</td>
+                        <td class="pt-3-half">
+                            <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"
+                                        aria-hidden="true"></i></a></span>
+                            <span class="table-down"><a href="#!" class="indigo-text"><i
+                                        class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+                        </td>
+                        <td>
+                            <span class="table-remove"><button type="button"
+                                    class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pt-3-half" contenteditable="true">Van</td>
+                        <td class="pt-3-half" contenteditable="true">Junction</td>
+                        <td class="pt-3-half" contenteditable="true">Lilian</td>
+                        <td class="pt-3-half" contenteditable="true">Anthony</td>
+                        <td class="pt-3-half" contenteditable="true">Female</td>
+                        <td class="pt-3-half" contenteditable="true">2009/01/12</td>
+                        <td class="pt-3-half" contenteditable="true">$86,000</td>
+                        <td class="pt-3-half">
+                            <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"
+                                        aria-hidden="true"></i></a></span>
+                            <span class="table-down"><a href="#!" class="indigo-text"><i
+                                        class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+                        </td>
+                        <td>
+                            <span class="table-remove"><button type="button"
+                                    class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                        </td>
+                    </tr>
+
                 </tbody>
                 <tfoot>
-                  <tr>
-                    <th class="bottom-th">First name
-                    </th>
-                    <th class="bottom-th">Last name
-                    </th>
-                    <th class="bottom-th">Email
-                    </th>
-                    <th class="bottom-th">Mobile
-                    </th>
-                    <th class="bottom-th">Gender
-                    </th>
-                    <th class="bottom-th">Sign-Up date
-                    </th>
-                    <th class="bottom-th">Status
-                    </th>
-                    <th class="bottom-th">Sort</th>
-                    <th class="bottom-th">Remove</th>
-                  </tr>
+                    <tr>
+                        <th class="bottom-th">Trip Type
+                        </th>
+                        <th class="bottom-th">Address
+                        </th>
+                        <th class="bottom-th">Driver
+                        </th>
+                        <th class="bottom-th">Rider
+                        </th>
+                        <th class="bottom-th">Gender
+                        </th>
+                        <th class="bottom-th">Sign-Up date
+                        </th>
+                        <th class="bottom-th">Status
+                        </th>
+                        <th class="bottom-th">Sort</th>
+                        <th class="bottom-th">Remove</th>
+                    </tr>
                 </tfoot>
-              </table>
+            </table>
         </div>
-        
-      </div>
     </div>
 </div>
-
-=======
-      <div class="row">
-
-      </div>
-    </div>
-  </div>
->>>>>>> origin/WebApp
 {% endblock %}
