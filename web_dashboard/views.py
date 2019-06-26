@@ -57,7 +57,7 @@ def postsign(request):
   session_id=user['idToken']
   request.session['uid']=str(session_id)
   
-  return render(request, "welcome.html",{"email":email})
+  return render(request, "welcome.html",{"email":email,"user":user})
 
 def adminLogout(request):
   try:
@@ -94,7 +94,7 @@ def postsignup(request):
 
   }
 
-  database.child("admin").child(uid).child("details").set(data,idToken)
+  database.child("admin").child(uid).child("details").set(data)
 
   return render(request,'signIn.html')
 
@@ -132,6 +132,32 @@ def post_create(request):
     message='Oops! User logged out please sign in.'
     return render(request,'signIn.html',{"message":message})
 
-def location(request):
+def adminDetails(request):
+  idToken=request.session['uid']
+  prof =auth_a.get_account_info(idToken)
 
+  prof=prof['users']
+  prof=prof[0]
+  prof=prof['localId']
+  timestamps =  database.child('users').child(prof).child('profile').shallow().get().val()
+  lis_time=[]
+
+  for profile in timestamps:
+    lis_time.append(profile)
+
+    lis_time.sort(reverse=True)
+
+  print(lis_time)
+  admin_details=[]
+
+  for profile in lis_time:
+    adm=database.child('users').child(prof).child('profile').child(profile).child('admin_details').get().val()
+
+    work.append(adm)
+    admin_prof=zip(lis_time,admin_details)
+
+  return render(request,'admin.html',{'admin_prof':admin_prof})
+
+def location(request):
+  
   return render(request,'location_rates.html')
