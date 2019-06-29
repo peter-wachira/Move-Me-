@@ -134,29 +134,37 @@ def post_create(request):
 
 def adminDetails(request):
   idToken=request.session['uid']
+  # print(idToken)
   prof =auth_a.get_account_info(idToken)
+  # print(prof)
+  current_user = prof['users']
+  current_user_id = current_user[0]
+  now_user = current_user_id['localId']
+
+  # print(now_user)
 
   prof=prof['users']
   prof=prof[0]
   prof=prof['localId']
-  timestamps =  database.child('users').child(prof).child('profile').shallow().get().val()
+  db = firebase.database()
+  admins = db.child("admin").child(now_user).child('profile').get().val()
+  # print(admins)
+
   lis_time=[]
 
-  for profile in timestamps:
+  for profile in admins:
     lis_time.append(profile)
 
     lis_time.sort(reverse=True)
 
-  print(lis_time)
-  admin_details=[]
-
-  for profile in lis_time:
-    adm=database.child('users').child(prof).child('profile').child(profile).child('admin_details').get().val()
-
-    work.append(adm)
-    admin_prof=zip(lis_time,admin_details)
-
-  return render(request,'admin.html',{'admin_prof':admin_prof})
+  recent_profile = lis_time[-1]
+  print(recent_profile)
+  recent_profile_details = admins[recent_profile]
+  recent_address = recent_profile_details['address']
+  print(recent_address)
+  
+  
+  return render(request,'administrator.html',{'address':recent_address})
 
 def location(request):
   

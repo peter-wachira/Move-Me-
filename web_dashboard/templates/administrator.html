@@ -38,20 +38,21 @@
             
             <div class="col-md-6 ">
                 <div class="admin-details">
+                    
                     <div class="card text-center admin">
-                        {%for name in admin_prof%}
                         <h2>Name</h2>
-                        <h4 class="identity">{{name}}</h4>
-                        {% endfor %}
+                        <h4 class="identity">{{name}}</h4>      
                     </div>
-                    <div class="card text-center admin">
-                        {%for email,address in admin_prof%}
-                        <h2>Email</h2>
-                        <h5 class="identity">aisajemila@gmail.com</h5>
+                    
+                    
+                    <div class="card text-center admin">              
+                        <h2>Contact</h2>
+                        <h5 class="identity">{{mobile}}</h5>
                         <h2>Home address</h2>
-                        <p class="identity">1st Avenue, Parklands.</p>
-                        {% endfor %}
+                        <p class="identity">{{address}}</p>
                     </div>
+                  
+
                 </div>                
             </div>
             <div class="col-md-6">

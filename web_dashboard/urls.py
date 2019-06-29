@@ -15,5 +15,6 @@ urlpatterns=[
   url(r'^profile/',views.create_profile,name='prof-create'),
   url(r'^create_post/',views.post_create,name='prof-post'),
   url(r'^trips/',views.trips,name='trips'),
-  url(r'^locations/',views.location,name='locations')
+  url(r'^locations/',views.location,name='locations'),
+  url(r'^admin-details/', views.adminDetails, name='admin-details')
 ]
