@@ -45,6 +45,9 @@ body{
 .fas{
   color: #00adb5;
 }
+.fa-user:hover{
+  background-color: #ffffff;
+}
 .charts{
   padding-top: 3%;
   padding-bottom: 3%;
