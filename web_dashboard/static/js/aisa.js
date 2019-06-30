@@ -153,6 +153,7 @@
       // Upload completed successfully, now we can get the download URL
      var downloadURL=thisref.snapshot.getDownloadURL;
         console.log('Got url');
+        document.getElementById('url').value = downloadURL;
         alert('file uploaded successfully');
     }
     )

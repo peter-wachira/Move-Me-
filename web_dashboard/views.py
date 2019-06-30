@@ -106,7 +106,7 @@ def post_create(request):
   name=request.POST.get('name')
   address=request.POST.get('address')
   mobile=request.POST.get('phone')
-  url = request.POST.get('url')
+  url =request.POST.get('url')
   bio=request.POST.get('bio')
   try:
     time_now=datetime.now()
@@ -163,11 +163,11 @@ def adminDetails(request):
   print(recent_profile)
   recent_profile_details = admins[recent_profile]
   recent_address = recent_profile_details['address']
-  rec_contact = recent_profile_details['contact']
+  rec_contact = recent_profile_details['mobile']
   name = recent_profile_details['name']
   print(recent_address)
     
-  return render(request,'administrator.html',{'address':recent_address,'mobile':rec_contact,'name':name})
+  return render(request,'administrator.html',{'address':recent_address,'contact':rec_contact,'name':name})
 
 def location(request):
   

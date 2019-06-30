@@ -8,7 +8,7 @@
               <li class="nav-item"><a href="{% url 'dashboard'%}" class="nav-link"><i class="fas fa-tachometer-alt" aria-hidden="true"></i>
                   <span class="text">Dashboard</span>
               </a></li>
-              <li class="nav-item"><a href="{% url 'admin-dash'%}" class="nav-link"><i class="fas fa-lock" aria-hidden="true"></i>
+              <li class="nav-item"><a href="{% url 'admin-details'%}" class="nav-link"><i class="fas fa-lock" aria-hidden="true"></i>
                   <span class="text">Admin</span>
               </a></li>
               <li class="nav-item"><a href="{% url 'users'%}" class="nav-link"><i class="fas fa-users" aria-hidden="true"></i>
@@ -56,9 +56,9 @@
                                 <button  class="input-group-text btn btn-info" type="button" onclick="uploadimage()">Upload</button>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input btn btn-info" name="files[]" id="fileInput" aria-describedby="fileInput">
+                                <input type="file" class="custom-file-input btn btn-info" name="files[]" id="fileInput" aria-describedby="fileInput" required>
                                 <input type="hidden" name="url" id="url">
-                                <!-- <label class="custom-file-label" for="fileInput" id="url">File Label</label> -->
+                                <label class="custom-file-label" for="fileInput" id="url">File Label</label>
                             </div>
                             
                         </div>
@@ -81,5 +81,6 @@
       
   </div>
 </div>
+
 
 {%endblock%}
