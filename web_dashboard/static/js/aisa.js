@@ -141,7 +141,7 @@
     var storage = firebase.storage();
   
     var file=document.getElementById('fileInput').files[0];
-    var storageRef = storage.ref();
+    var storageRef = firebase.storage().ref();
     var thisref=storageRef.child(file.name).put(file);
     thisref.on('state_changed',function(snapshot){
       console.log("file uploaded successfully")
