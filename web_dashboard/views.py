@@ -169,6 +169,62 @@ def adminDetails(request):
     
   return render(request,'administrator.html',{'address':recent_address,'contact':rec_contact,'name':name})
 
+def user_details(request):
+ 
+  idToken=request.session['uid']
+  customer =auth_a.get_account_info(idToken)
+  cust_details = database.child('Users').child('Customers').child(customer).get().val()
+  customers = []
+
+  for i in cust_details:
+
+    customers.append(i)
+
+  customers.sort(reverse=True)
+
+  print(customers)
+  
+  emai = []
+  total=[]
+  firstn = []
+  lastn = []
+  phon = []
+  gend = []
+  dateti = []
+
+  for x in lis_time:
+
+    cust=database.child('Users').child(prof).child('Customers').child(x).child('email').get().val()
+    emai.append(cust)
+
+    first=database.child('Users').child(prof).child('Customers').child(x).child('name').get().val()
+    total.append(first)
+    new = total.split(" ")
+    firstn.append(new[0])
+    lastn.append(new[-1])
+
+    pho=database.child('Users').child(prof).child('Customers').child(x).child('phone').get().val()
+    phon.append(pho)
+
+    gen=database.child('Users').child(prof).child('Customers').child(x).child('gender').get().val()
+    gend.append(gen)
+
+    x = float(x)
+    datet = datetime.datetime.fromtimestamp(e).strftime('%H:%M %d-%m-%y')
+    dateti.append(datet)
+  
+
+  print(emai)
+  print(firstn)
+  print(lastn)
+  print(phon)
+  print(gend)
+  print(datet)
+
+  
+
+  return render(request,'users.html',{'lis_time':lis_time,'emai':emai,'firstn':firstn,'lastn':lastn,'phon':phon,'gend':gend,'datet':datet})
+
 def location(request):
   
   return render(request,'location_rates.html')
